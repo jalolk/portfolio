@@ -1,0 +1,26 @@
+---
+import ComponentLayout from "../../layouts/ComponentLayout.astro";
+import BlogCard from "./BlogCard.astro";
+import SectionTitle from "../SectionTitle.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { BLOGS_SECTION_TITLES } from "../../constants";
+
+const posts: CollectionEntry<"blog">[] = await getCollection("blog");
+const latestPosts = posts.reverse().slice(0, 3);
+
+const { title, subtitle } = BLOGS_SECTION_TITLES;
+---
+
+<div class="bg-base-300" id="blogs">
+  <ComponentLayout>
+    <SectionTitle {title} {subtitle} />
+    <div
+      class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-fit mx-auto"
+    >
+      {latestPosts.map((post) => <BlogCard {...post} />)}
+    </div>
+    <div class="w-fit mx-auto mt-8">
+      <a class="btn btn-outline" href="/blogs">Read more Blog Posts</a>
+    </div>
+  </ComponentLayout>
+</div>

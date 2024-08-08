@@ -1,0 +1,42 @@
+---
+import { config } from "../data/config";
+import { navigationLinks } from "../constants";
+import { Menu } from "lucide-astro";
+---
+
+<nav class="navbar container mx-auto">
+  <div class="navbar-start">
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <Menu class="w-4 h-4" />
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+      >
+        {
+          Object.entries(navigationLinks).map(([text, href]) => (
+            <li>
+              <a href={href}>{text}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <a class="text-xl font-bold cursor-pointer" href="/">CODPUD</a>
+  </div>
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      {
+        Object.entries(navigationLinks).map(([text, href]) => (
+          <li>
+            <a href={href}>{text}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div class="navbar-end">
+    <a class="btn btn-primary" href=`mailto:${config.email}`>Contact Me</a>
+  </div>
+</nav>

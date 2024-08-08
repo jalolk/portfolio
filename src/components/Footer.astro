@@ -1,0 +1,40 @@
+---
+import SubscribeForm from "./SubscribeForm.astro";
+import ComponentLayout from "../layouts/ComponentLayout.astro";
+import { FOOTER_NOTE } from "../constants";
+import { config } from "../data/config";
+---
+
+<div class="bg-base-300">
+  <ComponentLayout>
+    <footer class="footer footer-center">
+      <div>
+        <h6 class="footer-title">Be the First to Know</h6>
+        <SubscribeForm />
+      </div>
+      <nav>
+        <h6 class="footer-title">Stalk Me Online</h6>
+        <div>
+          {
+            config.socialLinks.map(({ name, url, Icon }) => (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-ghost"
+              >
+                <Icon size={24} alt={name} />
+              </a>
+            ))
+          }
+        </div>
+      </nav>
+      <aside>
+        <h6 class="footer-title">Legal-ish Stuff</h6>
+        <p>
+          {FOOTER_NOTE}
+        </p>
+      </aside>
+    </footer>
+  </ComponentLayout>
+</div>

@@ -1,0 +1,27 @@
+---
+import { formatDate } from "../../utils";
+
+const {
+  slug,
+  data: { title, author, date, image, tags },
+  class: className,
+} = Astro.props;
+---
+
+<a href={`blog/${slug}`}>
+  <div
+    class=`card bg-base-100 w-full shadow-xl hover:shadow-base-200 hover:cursor-pointer ${className}`
+  >
+    <figure class="aspect-video relative">
+      <img src={image} alt={title} />
+      <div class="badge badge-ghost absolute top-4 left-4">{tags[0]}</div>
+    </figure>
+
+    <div class="card-body">
+      <h2 class="card-title hover:underline">{title}</h2>
+      <p class="text-zinc-400">
+        {author} · {formatDate(date)}
+      </p>
+    </div>
+  </div>
+</a>
