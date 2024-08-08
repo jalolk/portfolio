@@ -1,4 +1,4 @@
-# Portfolio Website using Astro, TailwindCSS, DaisyUI
+# Portfolio: Astro, TailwindCSS, DaisyUI
 
 This is a static portfolio website built using Astro, TypeScript, and TailwindCSS. It showcases personal projects, skills, and blog posts using markdown files.
 
