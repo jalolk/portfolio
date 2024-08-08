@@ -14,12 +14,12 @@
     @apply font-cutive my-4 mt-12 text-base-content;
   }
   
-  .markdown-content h1 { @apply text-3xl lg:text-6xl; }
-  .markdown-content h2 { @apply text-2xl lg:text-4xl; }
-  .markdown-content h3 { @apply text-xl lg:text-3xl; }
-  .markdown-content h4 { @apply text-lg lg:text-2xl; }
-  .markdown-content h5 { @apply text-base lg:text-xl; }
-  .markdown-content h6 { @apply text-sm lg:text-lg; }
+  .markdown-content h1 { @apply text-3xl lg:text-4xl; }
+  .markdown-content h2 { @apply text-2xl lg:text-3xl; }
+  .markdown-content h3 { @apply text-xl lg:text-2xl; }
+  .markdown-content h4 { @apply text-lg lg:text-xl; }
+  .markdown-content h5 { @apply text-base lg:text-lg; }
+  .markdown-content h6 { @apply text-base lg:text-lg; }
   
   /* Paragraph Styles */
   .markdown-content p {

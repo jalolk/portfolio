@@ -10,10 +10,10 @@ const {
 
 <a href={`blog/${slug}`}>
   <div
-    class=`card bg-base-100 w-full shadow-xl hover:shadow-base-200 hover:cursor-pointer ${className}`
+    class=`card bg-base-100 h-full w-full shadow-xl hover:shadow-base-200 hover:cursor-pointer ${className}`
   >
     <figure class="aspect-video relative">
-      <img src={image} alt={title} />
+      <img src={image} alt={title} class="aspect-video" />
       <div class="badge badge-ghost absolute top-4 left-4">{tags[0]}</div>
     </figure>
 

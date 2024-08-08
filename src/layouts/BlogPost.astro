@@ -9,7 +9,7 @@ import "../styles/markdown.css";
 <PageLayout title={frontmatter.title}>
   <ComponentLayout>
     <article>
-      <h1 class="font-cutive text-3xl lg:text-6xl">
+      <h1 class="font-cutive text-lg lg:text-4xl">
         {frontmatter.title}
       </h1>
 
@@ -38,6 +38,15 @@ import "../styles/markdown.css";
       }
       <div class="markdown-content">
         <slot />
+        {
+          frontmatter.tags.length > 0 && (
+            <div class="flex gap-2 mt-4">
+              {frontmatter.tags.map((tag: string) => (
+                <span class="tag text-zinc-400">#{tag}</span>
+              ))}
+            </div>
+          )
+        }
       </div>
     </article>
   </ComponentLayout>
