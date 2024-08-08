@@ -1,0 +1,30 @@
+---
+import ComponentLayout from "../../layouts/ComponentLayout.astro";
+import SectionTitle from "../SectionTitle.astro";
+import ProjectsTab from "./ProjectsTab.astro";
+import { config } from "../../data/config";
+import { ArrowUpRight } from "lucide-astro";
+import { PROJECTS_SECTION_TITLES } from "../../constants";
+
+const { title, subtitle } = PROJECTS_SECTION_TITLES;
+---
+
+<div class="bg-base-200" id="projects">
+  <ComponentLayout>
+    <SectionTitle title={title} subtitle={subtitle} />
+    <div class="mt-4">
+      <div role="tablist" class="tabs tabs-lifted">
+        {
+          config.projects
+            .slice(0, 2)
+            .map((project, index) => <ProjectsTab {...project} index={index} />)
+        }
+        <a
+          href="/projects"
+          class="tab whitespace-nowrap items-center gap-1 !flex-nowrap !inline-flex text-zinc-400 hover:underline"
+          >More Projects <ArrowUpRight class="w-4" /></a
+        >
+      </div>
+    </div>
+  </ComponentLayout>
+</div>

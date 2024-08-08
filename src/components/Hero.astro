@@ -1,0 +1,83 @@
+---
+import ComponentLayout from "../layouts/ComponentLayout.astro";
+import SubscribeForm from "./SubscribeForm.astro";
+import { config } from "../data/config";
+
+const { name, tagline, profile, socialLinks } = config;
+---
+
+<ComponentLayout>
+  <header>
+    <div class="flex flex-col lg:flex-row">
+      <div class="flex flex-col justify-center text-center lg:text-left">
+        <h1 class="font-cutive text-3xl lg:text-6xl">{name}</h1>
+        <p class="text-lg font-semibold text-zinc-400">{tagline}</p>
+        <div class="flex flex-col gap-4 mt-4">
+          {
+            profile.map(({ title, history }) => (
+              <div>
+                <h2 class="text-xl font-bold">{title}</h2>
+                <div class="flex flex-col gap-1">
+                  {history.map(
+                    ({ title, establishment, startYear, endYear, Logo }) => (
+                      <span class="flex-grow">
+                        <Logo size={20} class="inline" aria-hidden="true" />
+                        {title}, {establishment}
+                        <span class="hidden md:inline">
+                          ({startYear} - {endYear})
+                        </span>
+                      </span>
+                    )
+                  )}
+                </div>
+              </div>
+            ))
+          }
+          <div>
+            <h2 class="text-xl font-bold">Skills</h2>
+            <div
+              class="flex gap-2 flex-wrap max-w-80 justify-center lg:justify-start mx-auto lg:mx-0"
+            >
+              {
+                config.skills.map((Skill) => (
+                  <Skill size={20} class="" aria-hidden="true" />
+                ))
+              }
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 mx-auto lg:mx-0">
+          <SubscribeForm />
+        </div>
+      </div>
+      <div class="flex-1 mt-8 lg:mt-0 text-zinc-400">
+        <div class="flex justify-center lg:justify-end">
+          <div>
+            <img
+              src="/images/hero-picture-modified.webp"
+              alt="Hero Image"
+              class="h-[370px] lg:h-[410px] w-auto object-cover"
+            />
+            <hr class="w-64 border-t border-zinc-400" />
+
+            <div class="mt-2 flex justify-center items-center">
+              <span class="mr-2">Follow on: </span>
+              {
+                socialLinks.map(({ name, url, Icon }) => (
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={url}
+                    class="btn btn-ghost"
+                  >
+                    <Icon class="w-4" />
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</ComponentLayout>

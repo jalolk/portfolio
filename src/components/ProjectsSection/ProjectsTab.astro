@@ -1,0 +1,63 @@
+---
+import { Github } from "simple-icons-astro";
+
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  name: string;
+  githubLink: string;
+  index: number;
+  tools: string[];
+  demoLink?: string;
+}
+
+const { title, description, image, name, githubLink, index, tools, demoLink } =
+  Astro.props as Project;
+---
+
+<input
+  type="radio"
+  name="tab"
+  role="tab"
+  class="tab"
+  aria-label={name}
+  checked={index == 0 && "checked"}
+/>
+<div
+  role="tabpanel"
+  class="tab-content bg-base-100 border-base-300 rounded-box p-6"
+>
+  <div class="flex flex-col lg:flex-row gap-8">
+    <img
+      src={image}
+      alt={name}
+      class="w-auto max-h-72 rounded-lg aspect-video"
+    />
+    <div class="flex flex-col gap-4">
+      <h3 class="font-cutive text-xl">{title}</h3>
+      <p class="flex-1">{description}</p>
+      <div class="text-sm text-zinc-400 select-none">
+        {
+          tools.map((tool) => (
+            <span class="badge badge-secondary badge-outline mr-1 mt-1">
+              {tool}
+            </span>
+          ))
+        }
+      </div>
+      <div class="flex gap-2">
+        <a href={githubLink} class="btn btn-outline">
+          Source Code <Github class="w-4" />
+        </a>
+        {
+          demoLink && (
+            <a href={demoLink} class="btn">
+              View Demo
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</div>
