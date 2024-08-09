@@ -1,186 +1,188 @@
 /* Comprehensive Markdown Content Styles */
 
 .markdown-content {
-    @apply text-base leading-relaxed;
-  }
-  
-  /* Heading Styles */
-  .markdown-content h1 {
-    @apply mt-12;
-  }
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+  @apply  leading-relaxed;
+}
 
-  .markdown-content h2 {
-    @apply mt-10;
-  }
+/* Heading Styles */
+.markdown-content h1 {
+  @apply mt-12;
+}
 
-  .markdown-content h3,
-  .markdown-content h4 {
-    @apply mt-6;
-  }
+.markdown-content h2 {
+  @apply mt-10;
+}
 
-  .markdown-content h1,
-  .markdown-content h2,
-  .markdown-content h3,
-  .markdown-content h4 {
-    @apply font-cutive;
+.markdown-content h3,
+.markdown-content h4 {
+  @apply mt-6;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4 {
+  @apply font-cutive;
+}
+
+.markdown-content h1 { @apply text-3xl lg:text-4xl; }
+.markdown-content h2 { @apply text-2xl lg:text-3xl; }
+.markdown-content h3 { @apply text-lg lg:text-xl; }
+.markdown-content h4 { @apply text-base lg:text-lg; }
+
+/* Paragraph Styles */
+.markdown-content p {
+  @apply mb-4;
+  white-space: pre-wrap; /* Preserves whitespace and allows wrapping */
+}
+
+/* List Styles */
+.markdown-content ul,
+.markdown-content ol {
+  @apply pl-6 mb-4;
+}
+
+.markdown-content li {
+  @apply mb-1 relative pl-4;
+}
+
+.markdown-content ul { 
+  list-style-type: none;
+}
+
+.markdown-content ol { 
+  list-style-type: none;
+  counter-reset: item;
+}
+
+.markdown-content ul > li::before {
+  content: "•";
+  @apply absolute left-0 text-base-content;
+}
+
+.markdown-content ol > li::before {
+  content: counter(item) ".";
+  counter-increment: item;
+  @apply absolute left-0 text-base-content;
+}
+
+.markdown-content li > ul,
+.markdown-content li > ol {
+  @apply mt-1 ml-4;
+}
+
+/* Link Styles */
+.markdown-content a {
+  @apply text-primary underline;
+}
+
+/* Blockquote Styles */
+.markdown-content blockquote {
+  @apply pl-4 border-l-4 border-zinc-400 italic my-4 text-base-content;
+}
+
+/* Code Block Styles */
+.markdown-content pre {
+  @apply rounded-md p-4 pt-8 overflow-x-auto mb-4 relative border border-zinc-400;
+  background-color: theme('colors.base-300') !important;
+}
+
+/* Language indicator */
+.markdown-content pre::before {
+  @apply content-[attr(data-language)] absolute top-0 right-0 px-2 py-1 text-xs font-semibold text-zinc-400 bg-base-200 rounded-bl;
+}
+
+.markdown-content pre code {
+  @apply font-mono text-sm bg-transparent text-base-content;
+}
+
+/* Inline Code Styles */
+.markdown-content :not(pre) > code {
+  background-color: theme('colors.base-300');
+  @apply rounded px-1 py-0.5 font-mono text-sm text-base-content;
+}
+
+/* Horizontal Rule Styles */
+.markdown-content hr {
+  @apply my-8 border-t border-zinc-400;
+}
+
+/* Image Styles */
+.markdown-content img {
+  @apply max-w-full h-auto my-4 rounded-md;
+}
+
+/* Table Styles */
+.markdown-content table {
+  @apply w-full border-collapse mb-4;
+}
+
+.markdown-content th,
+.markdown-content td {
+  @apply border border-zinc-400 px-4 py-2 text-base-content;
+}
+
+.markdown-content th {
+  background-color: theme('colors.base-200');
+  @apply font-semibold;
+}
+
+/* Task List Styles */
+.markdown-content ul:has(li > input[type="checkbox"]) {
+  @apply list-none pl-0;
+}
+
+.markdown-content li > input[type="checkbox"] {
+  @apply mr-2;
+}
+
+/* Definition List Styles */
+.markdown-content dl {
+  @apply mb-4;
+}
+
+.markdown-content dt {
+  @apply font-bold text-base-content;
+}
+
+.markdown-content dd {
+  @apply pl-4 mb-2 text-base-content;
+}
+
+/* Footnote Styles */
+.markdown-content .footnotes {
+  @apply text-sm mt-8 pt-4 border-t border-zinc-400 text-base-content;
+}
+
+/* Abbreviation Styles */
+.markdown-content abbr {
+  @apply cursor-help border-b border-dotted text-base-content;
+}
+
+/* Subscript and Superscript Styles */
+.markdown-content sub,
+.markdown-content sup {
+  @apply text-xs text-base-content;
+}
+
+/* Custom Component Styles (for MDX) */
+.markdown-content .custom-component {
+  background-color: theme('colors.base-300');
+  @apply p-4 rounded-md my-4 text-base-content;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .markdown-content {
+    @apply text-sm;
   }
   
-  .markdown-content h1 { @apply text-3xl lg:text-4xl; }
-  .markdown-content h2 { @apply text-2xl lg:text-3xl; }
-  .markdown-content h3 { @apply text-lg lg:text-xl; }
-  .markdown-content h4 { @apply text-base lg:text-lg; }
-  
-  /* Paragraph Styles */
-  .markdown-content p {
-    @apply mb-4 text-base;
-    white-space: pre-wrap; /* Preserves whitespace and allows wrapping */
-  }
-  
-  /* List Styles */
-  .markdown-content ul,
-  .markdown-content ol {
-    @apply pl-6 mb-4;
-  }
-  
-  .markdown-content li {
-    @apply mb-1 relative pl-4;
-  }
-  
-  .markdown-content ul { 
-    list-style-type: none;
-  }
-  
-  .markdown-content ol { 
-    list-style-type: none;
-    counter-reset: item;
-  }
-  
-  .markdown-content ul > li::before {
-    content: "•";
-    @apply absolute left-0 text-base-content;
-  }
-  
-  .markdown-content ol > li::before {
-    content: counter(item) ".";
-    counter-increment: item;
-    @apply absolute left-0 text-base-content;
-  }
-  
-  .markdown-content li > ul,
-  .markdown-content li > ol {
-    @apply mt-1 ml-4;
-  }
-  
-  /* Link Styles */
-  .markdown-content a {
-    @apply text-primary underline;
-  }
-  
-  /* Blockquote Styles */
-  .markdown-content blockquote {
-    @apply pl-4 border-l-4 border-zinc-400 italic my-4 text-base-content;
-  }
-  
-  /* Code Block Styles */
-  .markdown-content pre {
-    @apply rounded-md p-4 pt-8 overflow-x-auto mb-4 relative border border-zinc-400;
-    background-color: theme('colors.base-300') !important;
-  }
-  
-  /* Language indicator */
-  .markdown-content pre::before {
-    @apply content-[attr(data-language)] absolute top-0 right-0 px-2 py-1 text-xs font-semibold text-zinc-400 bg-base-200 rounded-bl;
-  }
-  
-  .markdown-content pre code {
-    @apply font-mono text-sm bg-transparent text-base-content;
-  }
-  
-  /* Inline Code Styles */
-  .markdown-content :not(pre) > code {
-    background-color: theme('colors.base-300');
-    @apply rounded px-1 py-0.5 font-mono text-sm text-base-content;
-  }
-  
-  /* Horizontal Rule Styles */
-  .markdown-content hr {
-    @apply my-8 border-t border-zinc-400;
-  }
-  
-  /* Image Styles */
-  .markdown-content img {
-    @apply max-w-full h-auto my-4 rounded-md;
-  }
-  
-  /* Table Styles */
-  .markdown-content table {
-    @apply w-full border-collapse mb-4;
-  }
-  
-  .markdown-content th,
-  .markdown-content td {
-    @apply border border-zinc-400 px-4 py-2 text-base-content;
-  }
-  
-  .markdown-content th {
-    background-color: theme('colors.base-200');
-    @apply font-semibold;
-  }
-  
-  /* Task List Styles */
-  .markdown-content ul:has(li > input[type="checkbox"]) {
-    @apply list-none pl-0;
-  }
-  
-  .markdown-content li > input[type="checkbox"] {
-    @apply mr-2;
-  }
-  
-  /* Definition List Styles */
-  .markdown-content dl {
-    @apply mb-4;
-  }
-  
-  .markdown-content dt {
-    @apply font-bold text-base-content;
-  }
-  
-  .markdown-content dd {
-    @apply pl-4 mb-2 text-base-content;
-  }
-  
-  /* Footnote Styles */
-  .markdown-content .footnotes {
-    @apply text-sm mt-8 pt-4 border-t border-zinc-400 text-base-content;
-  }
-  
-  /* Abbreviation Styles */
-  .markdown-content abbr {
-    @apply cursor-help border-b border-dotted text-base-content;
-  }
-  
-  /* Subscript and Superscript Styles */
-  .markdown-content sub,
-  .markdown-content sup {
-    @apply text-xs text-base-content;
-  }
-  
-  /* Custom Component Styles (for MDX) */
-  .markdown-content .custom-component {
-    background-color: theme('colors.base-300');
-    @apply p-4 rounded-md my-4 text-base-content;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 640px) {
-    .markdown-content {
-      @apply text-sm;
-    }
-    
-    .markdown-content h1 { @apply text-2xl; }
-    .markdown-content h2 { @apply text-xl; }
-    .markdown-content h3 { @apply text-lg; }
-    .markdown-content h4 { @apply text-base; }
-    .markdown-content h5,
-    .markdown-content h6 { @apply text-sm; }
-  }
+  .markdown-content h1 { @apply text-2xl; }
+  .markdown-content h2 { @apply text-xl; }
+  .markdown-content h3 { @apply text-lg; }
+  .markdown-content h4 { @apply text-base; }
+  .markdown-content h5,
+  .markdown-content h6 { @apply text-sm; }
+}

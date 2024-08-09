@@ -6,7 +6,7 @@ const { frontmatter } = Astro.props;
 import "../styles/markdown.css";
 ---
 
-<PageLayout title={frontmatter.title}>
+<PageLayout title={frontmatter.title} description={frontmatter.description}>
   <ComponentLayout>
     <article>
       <h1 class="font-cutive font-semibold text-lg lg:text-4xl">
