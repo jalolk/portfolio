@@ -32,7 +32,7 @@
   
   /* Paragraph Styles */
   .markdown-content p {
-    @apply mb-4;
+    @apply mb-4 text-base;
     white-space: pre-wrap; /* Preserves whitespace and allows wrapping */
   }
   
