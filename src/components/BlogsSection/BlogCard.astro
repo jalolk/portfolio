@@ -3,7 +3,7 @@ import { formatDate } from "../../utils";
 
 const {
   slug,
-  data: { title, author, date, image, tags },
+  data: { title, author, date, thumbnail, tags },
   class: className,
 } = Astro.props;
 ---
@@ -13,7 +13,7 @@ const {
     class=`card bg-base-100 h-full w-full shadow-xl hover:shadow-base-200 hover:cursor-pointer ${className}`
   >
     <figure class="aspect-video relative">
-      <img src={image} alt={title} class="aspect-video" />
+      <img src={thumbnail} alt={title} class="aspect-video" />
       <div class="badge badge-ghost absolute top-4 left-4">{tags[0]}</div>
     </figure>
 

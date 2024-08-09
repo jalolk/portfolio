@@ -3,16 +3,51 @@ import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import { config } from "../data/config";
 
-const { title, description } = Astro.props;
+const { title, description, image, type = "website" } = Astro.props;
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site || Astro.url.origin
+);
+
+function getFullImageUrl(imagePath: string) {
+  if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
+    return imagePath;
+  }
+  return new URL(imagePath, Astro.site || Astro.url.origin).toString();
+}
+
+const ogImage = image
+  ? getFullImageUrl(image)
+  : getFullImageUrl(config.defaultOgImage);
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title ? title : config.siteName}</title>
+    <title>{title || config.siteName}</title>
     <meta name="description" content={description || config.siteDescription} />
     <link rel="canonical" href={`${config.siteUrl}${Astro.url.pathname}`} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title || config.siteName} />
+    <meta
+      property="og:description"
+      content={description || config.siteDescription}
+    />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title || config.siteName} />
+    <meta
+      property="twitter:description"
+      content={description || config.siteDescription}
+    />
+    <meta property="twitter:image" content={ogImage} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />

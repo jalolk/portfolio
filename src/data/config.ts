@@ -29,6 +29,7 @@ export const config = {
   tagline: "Full Stack Engineer / QA Engineer",
   siteUrl: "https://www.codpud.xyz",
   email: "jalol.khamroev@codpud.xyz",
+  defaultOgImage: "/images/avatar.webp",
   socialLinks: [
     {
       name: "GitHub",

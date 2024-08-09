@@ -6,7 +6,12 @@ const { frontmatter } = Astro.props;
 import "../styles/markdown.css";
 ---
 
-<PageLayout title={frontmatter.title} description={frontmatter.description}>
+<PageLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  image={frontmatter.thumbnail}
+  type="article"
+>
   <ComponentLayout>
     <article>
       <h1 class="font-cutive font-semibold text-lg lg:text-4xl">
@@ -28,10 +33,10 @@ import "../styles/markdown.css";
       <hr class="border-t border-zinc-400" />
 
       {
-        frontmatter.image && (
+        frontmatter.thumbnail && (
           <img
             class="max-h-96 w-auto mx-auto my-8"
-            src={frontmatter.image}
+            src={frontmatter.thumbnail}
             alt={frontmatter.title}
           />
         )
