@@ -85,22 +85,14 @@ export const config = {
   ],
   projects: [
     {
-      title: "Encryptify - Encrupt and Decrypt Messages",
-      description: "This is a project description for Encryptify. Encryptify is a web application that allows users to encrypt and decrypt their messages. It uses the Caesar cipher algorithm to encrypt and decrypt messages. The application is built using React, Tailwind CSS, and Firebase.",
-      image: "/images/blog/post-1.webp",
-      name: "Encryptify",
-      githubLink: "https://www.google.com",
-      demoLink: "https://www.faceit.com",
-      tools: ["Python", "cryptohash", "Flask", "SQLite3", "HTML", "CSS", "JavaScript"],
+      title: "Astro-Powered SEO-Optimized Portfolio",
+      description: "Built a lightning-fast portfolio website using Astro, TypeScript, and TailwindCSS, showcasing the power of static site generation with modern web technologies. The site features blazing fast load times, an SEO-optimized structure, responsive design, an integrated Markdown-supported blog, and a dynamic project showcase, all optimized for performance and user experience. This project demonstrates proficiency in modern web development, emphasizing speed, SEO, and maintainability, serving as both a personal showcase and a high-performance template for developers.",
+      image: "/images/project/portfolio.webp",
+      name: "Portfolio",
+      githubLink: "https://github.com/jalolk/portfolio",
+      demoLink: "https://codpud.xyz/",
+      tools: ["Astro", "Tailwind CSS", "DaisyUI"],
     },
-    {
-      title: "Salesforce - Manage Sales and Customer Relationships",
-      description: "Salesforce is a project description for Salesforce. Salesforce is a web application that allows users to manage their sales and customer relationships. The application is built using React, Tailwind CSS, and Firebase. The application is built using React, Tailwind CSS, and Firebase. The application is built using React, Tailwind CSS, and Firebase.",
-      image: "/images/blog/post-2.webp",
-      name: "Salesforce",
-      githubLink: "https://www.google.com",
-      tools: ["React", "Tailwind CSS", "Firebase"],
-    }
   ],
   skills: [
     React,
