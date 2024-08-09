@@ -74,7 +74,7 @@
   
   /* Code Block Styles */
   .markdown-content pre {
-    @apply rounded-md p-4 overflow-x-auto mb-4 relative border border-zinc-400;
+    @apply rounded-md p-4 pt-8 overflow-x-auto mb-4 relative border border-zinc-400;
     background-color: theme('colors.base-300') !important;
   }
   

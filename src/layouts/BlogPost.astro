@@ -40,7 +40,7 @@ import "../styles/markdown.css";
         <slot />
         {
           frontmatter.tags.length > 0 && (
-            <div class="flex gap-2 mt-4">
+            <div class="flex gap-2 mt-4 flex-wrap">
               {frontmatter.tags.map((tag: string) => (
                 <span class="tag text-zinc-400">#{tag}</span>
               ))}
