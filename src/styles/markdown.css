@@ -1,25 +1,34 @@
 /* Comprehensive Markdown Content Styles */
 
 .markdown-content {
-    @apply text-base leading-relaxed text-base-content;
+    @apply text-base leading-relaxed;
   }
   
   /* Heading Styles */
+  .markdown-content h1 {
+    @apply mt-12;
+  }
+
+  .markdown-content h2 {
+    @apply mt-10;
+  }
+
+  .markdown-content h3,
+  .markdown-content h4 {
+    @apply mt-6;
+  }
+
   .markdown-content h1,
   .markdown-content h2,
   .markdown-content h3,
-  .markdown-content h4,
-  .markdown-content h5,
-  .markdown-content h6 {
-    @apply font-cutive my-4 mt-12 text-base-content;
+  .markdown-content h4 {
+    @apply font-cutive;
   }
   
   .markdown-content h1 { @apply text-3xl lg:text-4xl; }
   .markdown-content h2 { @apply text-2xl lg:text-3xl; }
-  .markdown-content h3 { @apply text-xl lg:text-2xl; }
-  .markdown-content h4 { @apply text-lg lg:text-xl; }
-  .markdown-content h5 { @apply text-base lg:text-lg; }
-  .markdown-content h6 { @apply text-base lg:text-lg; }
+  .markdown-content h3 { @apply text-lg lg:text-xl; }
+  .markdown-content h4 { @apply text-base lg:text-lg; }
   
   /* Paragraph Styles */
   .markdown-content p {

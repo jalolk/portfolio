@@ -9,7 +9,7 @@ import "../styles/markdown.css";
 <PageLayout title={frontmatter.title}>
   <ComponentLayout>
     <article>
-      <h1 class="font-cutive text-lg lg:text-4xl">
+      <h1 class="font-cutive font-semibold text-lg lg:text-4xl">
         {frontmatter.title}
       </h1>
 
@@ -30,7 +30,7 @@ import "../styles/markdown.css";
       {
         frontmatter.image && (
           <img
-            class="aspect-video max-h-96 w-auto mx-auto my-8"
+            class="max-h-96 w-auto mx-auto my-8"
             src={frontmatter.image}
             alt={frontmatter.title}
           />
@@ -42,7 +42,7 @@ import "../styles/markdown.css";
           frontmatter.tags.length > 0 && (
             <div class="flex gap-2 mt-4 flex-wrap">
               {frontmatter.tags.map((tag: string) => (
-                <span class="tag text-zinc-400">#{tag}</span>
+                <span class="badge badge-neutral text-zinc-400">{tag}</span>
               ))}
             </div>
           )
